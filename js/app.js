@@ -59,9 +59,9 @@ Player.prototype.render = function() {
 Player.prototype.update = function(dt) {
 
     if(this.y < 0) { //when the player reaches to the water(blue-colored tiles)
-      this.reset();//bring the player back to the initial position
-    score = score + 10;
-    document.getElementById("score").innerHTML = "Score: " + score;//increment the score board.
+        this.reset();//bring the player back to the initial position
+        score = score + 10;
+        document.getElementById("score").innerHTML = "Score: " + score;//increment the score board.
     }
 
     this.checkCollisions();//check for any collision of the player with the bugs.
@@ -100,13 +100,13 @@ var player = new Player();
 Player.prototype.checkCollisions = function() {
     //collision of player with enemies
     allEnemies.forEach(function(enemy) {
-        if (player.x < enemy.x + enemy.width &&
-            enemy.x < player.x + player.width &&
-            player.y < enemy.y + enemy.height &&
-            enemy.y < player.y + player.height
+        if (this.x < enemy.x + enemy.width &&
+            enemy.x < this.x + this.width &&
+            this.y < enemy.y + enemy.height &&
+            enemy.y < this.y + this.height
             ) {
             //Collision Detected. Decrement the lives of the player and update it on the scoreboard.
-            player.reset();
+            this.reset();
             lives -=1;
             document.getElementById("lives").innerHTML = "Lives left: " + lives;
             //Game is over!!! Restart the Game.
