@@ -1,3 +1,12 @@
 body {
     text-align: center;
+    background-color: black;
+}
+
+.legend {
+    color: yellow;
+}
+
+h1 {
+    color: red;
 }

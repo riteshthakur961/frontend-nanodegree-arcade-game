@@ -29,6 +29,30 @@ var Engine = (function(global) {
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+
+    //used to draw the grid structure to fine tune the collision datection.
+    /*var bw = 500;
+    var bh = 600;
+    var p = 10;
+    var cw = bw + (p*2) + 1;
+    var ch = bh + (p*2) + 1;
+
+    function drawGrid(){
+    for (var z = 0; z <= bw; z += 40) {
+        ctx.moveTo(0.5 + z + p, p);
+        ctx.lineTo(0.5 + z + p, bh + p);
+    }
+
+
+    for (var z = 0; z <= bh; z += 40) {
+        ctx.moveTo(p, 0.5 + z + p);
+        ctx.lineTo(bw + p, 0.5 + z + p);
+    }
+
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+    }*/
+
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -80,7 +104,6 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -137,6 +160,7 @@ var Engine = (function(global) {
         }
 
         renderEntities();
+        //drawGrid(); //used to call the drawGrid function to fine tune the collision datection.
     }
 
     /* This function is called by the render function and is called on each game
@@ -171,7 +195,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/Gem Orange.png'
     ]);
     Resources.onReady(init);
 
