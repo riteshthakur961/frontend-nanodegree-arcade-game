@@ -41,20 +41,16 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function() {
-    this.x = 0;
-    this.y = 400;
+    Enemy.call(this, 0, 400);
     this.speed = 100;
     this.sprite = "images/char-boy.png";
     this.width = 70;// to set the width of the bounding boxes helpful in collision detection.
     this.height = 75;// to set the height of the bounding boxes helpful in collision detection.
 };
 
+Player.prototype = Object.create(Enemy.prototype);
 
-
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    //drawBox(this.x + 17, this.y + 65, 70, 75, "yellow"); used to outline the box for the purpose of fine -tuning the collision-detection.
-};
+//drawBox(this.x + 17, this.y + 65, 70, 75, "yellow"); used to outline the box for the purpose of fine -tuning the collision-detection.
 
 Player.prototype.update = function(dt) {
 
@@ -114,7 +110,7 @@ Player.prototype.checkCollisions = function() {
                 document.write("<h1>Game Over</h1><h3>Refresh to play again</h3>");
             }
         }
-    });
+    }.bind(this);
 
 }
 
