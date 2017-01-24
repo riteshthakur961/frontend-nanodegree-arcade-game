@@ -110,7 +110,7 @@ Player.prototype.checkCollisions = function() {
                 document.write("<h1>Game Over</h1><h3>Refresh to play again</h3>");
             }
         }
-    }.bind(this);
+    }.bind(this));
 
 }
 
